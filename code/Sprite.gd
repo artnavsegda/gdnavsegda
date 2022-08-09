@@ -12,3 +12,10 @@ func _process(delta):
 
 func _on_Button_pressed():
 	set_process(not is_processing())
+
+func _ready():
+	var timer = get_node("Timer")
+	timer.connect("timeout", self, "_on_Timer_timeout")
+	
+func _on_Timer_timeout():
+	visible = not visible
